@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white">
+
+    <!-- Texto de boas-vindas -->
+    <TextView
+        android:id="@+id/textWelcome"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="32dp"
+        android:text="Bem-vindo ao ClearVolt!"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    <!-- Status das placas -->
+    <TextView
+        android:id="@+id/textStatus"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="80dp"
+        android:text="Status: --"
+        android:textSize="18sp" />
+
+    <!-- Última limpeza -->
+    <TextView
+        android:id="@+id/lastCleaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|top"
+        android:layout_marginTop="120dp"
+        android:text="Última limpeza: --"
+        android:textSize="16sp" />
+
+    <!-- Botão para iniciar limpeza -->
+    <Button
+        android:id="@+id/buttonStartCleaning"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Iniciar Limpeza" />
+
+    <!-- Botão para visualizar relatórios -->
+    <Button
+        android:id="@+id/buttonViewReports"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="32dp"
+        android:text="Ver Relatórios" />
+
+</FrameLayout>

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "253545272960",
+    "project_id": "clearvolt-815fd",
+    "storage_bucket": "clearvolt-815fd.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:253545272960:android:2b955952fd4cf1856a7865",
+        "android_client_info": {
+          "package_name": "com.example.clearvolt"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCR7hKKrK0rgWqrh1ZSszpb937GzRpWqzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

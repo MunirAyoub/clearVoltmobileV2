@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/navigation_home">
+
+    <!-- Fragmento Home -->
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.example.clearvolt.views.ui.HomeFragment"
+        android:label="@string/tittle_home"
+        tools:layout="@layout/fragment_home" />
+
+    <!-- Fragmento Profile -->
+    <fragment
+        android:id="@+id/navigation_profile"
+        android:name="com.example.clearvolt.views.ui.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+
+    <!-- Fragmento Dashboard -->
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.clearvolt.views.ui.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard" />
+</navigation>
