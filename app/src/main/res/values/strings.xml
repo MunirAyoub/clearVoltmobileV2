@@ -5,5 +5,5 @@
     <string name="tittle_home">HOME</string>
     <string name="title_profile">Profile</string>
     <string name="title_dashboard">Dashboard</string>
-
+    <string name="login_image_description">Imagem do Login</string>
 </resources>
