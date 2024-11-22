@@ -1,0 +1,15 @@
+<resources>
+    <font-family name="montserrat_bold">
+        <font
+                android:fontStyle="normal"
+            android:fontWeight="700"
+            android:font="@font/montserrat_bold" />
+    </font-family>
+
+    <font-family name="roboto_regular">
+        <font
+            android:fontStyle="normal"
+            android:fontWeight="400"
+            android:font="@font/roboto_regular" />
+    </font-family>
+</resources>

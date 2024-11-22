@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
+    <!-- Cores da Logo -->
+    <color name="verde_escuro">#67942f</color>
+    <color name="azul_oceano">#004aad</color>
+    <color name="amarelo_mostarda">#fdd550</color>
+    <color name="azul_claro">#00cbff</color>
+    <color name="branco">#FFFFFF</color>
+
+    <!-- Fundo Claro -->
+    <color name="azul_royal">#004aa9</color>
+    <color name="azul_ceu">#4c99ff</color>
+    <color name="ciano">#a2ffeb</color>
+
+    <!-- Fundo Escuro -->
+    <color name="azul_escuro">#130068</color>
+    <color name="azul_mar">#2a00f8</color>
 </resources>
