@@ -15,8 +15,7 @@ class DashboardFragment : Fragment() {
 
     private var _binding: FragmentDashboardBinding? = null
     private val binding get() = _binding!!
-
-    // Lista de placas solares
+    private lateinit var adapter: PlacaSolarAdapter
     private val listaPlacas = mutableListOf<PlacaSolar>()
 
     override fun onCreateView(
@@ -24,25 +23,29 @@ class DashboardFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentDashboardBinding.inflate(inflater, container, false)
+
+        setupRecyclerView()
+        setupListeners()
+
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
+    private fun setupRecyclerView() {
+        adapter = PlacaSolarAdapter(listaPlacas, onCleanClick = { placa ->
+            placa.status = "Limpo"
+            adapter.notifyDataSetChanged()
+            Toast.makeText(requireContext(), "Placa ${placa.nome} foi limpa!", Toast.LENGTH_SHORT).show()
+        })
 
-        // Configurar o RecyclerView
-        val adapter = PlacaSolarAdapter(listaPlacas)
         binding.recyclerViewPlacas.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerViewPlacas.adapter = adapter
+    }
 
-        // Configurar o botão para adicionar novas placas
+    private fun setupListeners() {
         binding.btnAdicionarPlaca.setOnClickListener {
-            // Adiciona uma nova placa na lista e atualiza o adapter
-            val novaPlaca = PlacaSolar("Placa ${listaPlacas.size + 1}", "Não Limpo")
+            val novaPlaca = PlacaSolar(nome = "Placa ${listaPlacas.size + 1}", status = "Sujo")
             listaPlacas.add(novaPlaca)
-            adapter.notifyItemInserted(listaPlacas.size - 1)
-
-            Toast.makeText(requireContext(), "Nova placa adicionada!", Toast.LENGTH_SHORT).show()
+            adapter.notifyDataSetChanged()
         }
     }
 

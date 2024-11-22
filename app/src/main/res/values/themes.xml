@@ -4,7 +4,7 @@
             <item name="colorPrimary">@color/azul_royal</item>
             <item name="colorPrimaryVariant">@color/azul_ceu</item>
             <item name="colorOnPrimary">@color/branco</item>
-            <item name="colorBackground">@color/ciano</item>
             <item name="colorOnBackground">@color/azul_oceano</item>
+            <item name="android:colorBackground">@color/ciano</item>
         </style>
     </resources>

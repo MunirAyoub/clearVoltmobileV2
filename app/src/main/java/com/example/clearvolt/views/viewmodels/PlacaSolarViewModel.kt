@@ -6,7 +6,9 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import com.example.clearvolt.data.AppDatabase
 import com.example.clearvolt.data.entities.PlacaSolarEntity
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.withContext
 
 class PlacaSolarViewModel(application: Application) : AndroidViewModel(application) {
 
@@ -20,7 +22,9 @@ class PlacaSolarViewModel(application: Application) : AndroidViewModel(applicati
     fun inserirPlaca(placa: PlacaSolarEntity) {
         viewModelScope.launch {
             try {
-                dao.inserirPlaca(placa)
+                withContext(Dispatchers.IO) {
+                    dao.inserirPlaca(placa)
+                }
             } catch (e: Exception) {
                 e.printStackTrace() // Log de erro para depuração
             }
@@ -33,7 +37,9 @@ class PlacaSolarViewModel(application: Application) : AndroidViewModel(applicati
     fun atualizarPlaca(placa: PlacaSolarEntity) {
         viewModelScope.launch {
             try {
-                dao.atualizarPlaca(placa)
+                withContext(Dispatchers.IO) {
+                    dao.atualizarPlaca(placa)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -46,7 +52,9 @@ class PlacaSolarViewModel(application: Application) : AndroidViewModel(applicati
     fun deletarPlaca(placa: PlacaSolarEntity) {
         viewModelScope.launch {
             try {
-                dao.deletarPlaca(placa)
+                withContext(Dispatchers.IO) {
+                    dao.deletarPlaca(placa)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }
@@ -59,7 +67,9 @@ class PlacaSolarViewModel(application: Application) : AndroidViewModel(applicati
     fun limparPlaca(id: Int) {
         viewModelScope.launch {
             try {
-                dao.limparPlaca(id)
+                withContext(Dispatchers.IO) {
+                    dao.limparPlaca(id)
+                }
             } catch (e: Exception) {
                 e.printStackTrace()
             }

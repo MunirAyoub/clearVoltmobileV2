@@ -2,7 +2,7 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.jetbrains.kotlin.android)
     id("com.google.gms.google-services")
-
+    id("kotlin-kapt")
 }
 
 android {
@@ -42,12 +42,11 @@ android {
 
 dependencies {
 
-    //Dependências do firebase:
+    // Dependências do Firebase:
     implementation(platform("com.google.firebase:firebase-bom:33.4.0"))
-    //Dependência do autenticador
     implementation("com.google.firebase:firebase-auth-ktx")
 
-
+    // Dependências padrão:
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
@@ -58,4 +57,9 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
+    implementation("androidx.room:room-runtime:2.5.2")
+    kapt("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+
+
 }
