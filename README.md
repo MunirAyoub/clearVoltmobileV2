@@ -1,163 +1,63 @@
-# ClearVolt Dashboard
+# 🌞 ClearVolt: Sistema de Limpeza Automática para Placas Solares
 
-## Descrição
-O ClearVolt Dashboard é um aplicativo que oferece gerenciamento inteligente de placas solares. Ele permite monitorar dados como potência, status e data de última limpeza das placas, além de possibilitar operações de controle e limpeza automatizada.
+Bem-vindo ao **ClearVolt**! 🚀 Uma solução inovadora e sustentável para otimizar a eficiência das placas solares e reduzir os desafios causados por sujeira, altas temperaturas e condições ambientais adversas. ♻️✨
 
-O projeto utiliza Android Jetpack, incluindo Room, ViewModel, LiveData, e segue o padrão MVVM para garantir escalabilidade e manutenção do código.
+## 🌟 Nossa Solução
 
-## Recursos
-- **Gerenciamento de Placas Solares**: Adicionar, atualizar e excluir informações das placas solares.
-- **Monitoramento de Status**: Verificar o estado atual de cada placa solar.
-- **Limpeza Automática**: Marcar placas como limpas remotamente.
-- **Persistência de Dados**: Uso de Room para armazenamento local eficiente e confiável.
+O **ClearVolt** é um sistema inteligente projetado para aumentar a eficiência energética e prolongar a vida útil das placas solares. Ele conta com:
 
-## Tecnologias Utilizadas
-- **Kotlin**
-- **Room Database**
-- **MVVM Architecture**
-- **Android Jetpack Components**:
-  - **ViewModel**
-  - **LiveData**
-  - **Room**
+- **🧼 Limpeza Automática**: Jatos programados de água ou ar que removem sujeira acumulada, reduzindo a necessidade de manutenções manuais.
+- **🌡️ Resfriamento Inteligente**: Em locais com altas temperaturas, jatos de água resfriam as placas para manter seu desempenho ideal.
 
-## Configuração do Ambiente
+Além disso, o ClearVolt é totalmente personalizável para atender às necessidades de cada cliente! 
 
-### Pré-requisitos
-Certifique-se de ter instalado:
-- **Android Studio** (recomendado: versão mais recente)
-- **Gradle** configurado no projeto
-- **JDK 11+**
+### 🎛️ Funcionalidades Personalizadas
+- **Definição de Rotinas**: Programe ciclos de limpeza semanais diretamente pelo site ou app.
+- **Ajustes Personalizados**: Configure os níveis de temperatura ou umidade que acionam os jatos automaticamente.
+- **Programação Pré-definida**: Use rotinas otimizadas de fábrica para maior praticidade.
 
-### Configuração do Projeto
-Clone este repositório:
-```bash
-git clone https://github.com/seu-usuario/clearvolt-dashboard.git
-cd clearvolt-dashboard
-Abra o projeto no Android Studio. Sincronize o Gradle para baixar as dependências. Conecte um dispositivo ou emulador para testar o aplicativo.
+---
 
-Estrutura do Projeto
-1. Banco de Dados
-Configuração
-O banco de dados foi implementado usando Room. Ele contém:
+## 📊 Plataformas de Monitoramento
 
-Entidade: PlacaSolarEntity
-Representa os dados das placas solares, como nome, potência, última limpeza e status.
-kotlin
-Copiar código
-@Entity(tableName = "placa_solar")
-data class PlacaSolarEntity(
-    @PrimaryKey(autoGenerate = true) val id: Int = 0,
-    val nome: String,
-    val potencia: Double,
-    val ultimaLimpeza: String,
-    val status: Boolean
-)
-DAO: PlacaSolarDao
-Define as operações de CRUD:
-kotlin
-Copiar código
-@Dao
-interface PlacaSolarDao {
+Nosso sistema é integrado a uma plataforma web e a um app móvel, garantindo controle total e acompanhamento em tempo real. 🖥️📱
 
-    @Insert
-    suspend fun inserirPlaca(placaSolar: PlacaSolarEntity)
+Com eles, você pode:
+- Ver o status das placas solares. ✅
+- Receber notificações sobre ativações automáticas ou mudanças climáticas. 📩
+- Configurar rotinas ou ajustes de forma prática e intuitiva! 🎯
 
-    @Update
-    suspend fun atualizarPlaca(placaSolar: PlacaSolarEntity)
+---
 
-    @Delete
-    suspend fun deletarPlaca(placaSolar: PlacaSolarEntity)
+## 🌍 Impacto e Benefícios
 
-    @Query("SELECT * FROM placa_solar")
-    fun listarPlacas(): LiveData<List<PlacaSolarEntity>>
+O ClearVolt oferece:
+- **⚡ Aumento da Eficiência Energética**: Menos desperdício de recursos naturais e maior economia.
+- **🔧 Redução de Custos Operacionais**: Menos manutenção manual.
+- **🛡️ Preservação dos Equipamentos**: Vida útil prolongada das placas solares.
 
-    @Query("UPDATE placa_solar SET status = 1 WHERE id = :id")
-    suspend fun limparPlaca(id: Int)
-}
-2. ViewModel
-A PlacaSolarViewModel conecta o banco de dados à interface de usuário, permitindo:
+Alinhado aos **Objetivos de Desenvolvimento Sustentável (ODS)**, especialmente o **ODS 7: Energia Limpa e Acessível**, o ClearVolt promove inovação e sustentabilidade. 🌱🌐
 
-Gerenciar dados em tempo real com LiveData.
-Executar operações assíncronas sem bloquear a UI.
-kotlin
-Copiar código
-class PlacaSolarViewModel(application: Application) : AndroidViewModel(application) {
+---
 
-    private val repository: PlacaSolarRepository
-    val placas: LiveData<List<PlacaSolarEntity>>
+## 👥 Nossa Equipe
 
-    init {
-        val dao = AppDatabase.getDatabase(application).placaSolarDao()
-        repository = PlacaSolarRepository(dao)
-        placas = repository.allPlacas
-    }
+O ClearVolt foi desenvolvido por uma equipe multidisciplinar dedicada e criativa:  
+- **Matheus Felipe Camarinha Duarte**  
+- **Munir Jamil Mahmoud Ayoub**  
+- **Macirander Souza de Miranda Filho**  
+- **Gabriel Eduardo de Paiva Oliveira**  
+- **Maria Luiza De Oliveira Lobo**  
 
-    fun inserirPlaca(placa: PlacaSolarEntity) {
-        repository.insert(placa)
-    }
+Cada membro trouxe sua expertise para transformar esta ideia em uma solução tangível para o mercado. 🛠️💡
 
-    fun atualizarPlaca(placa: PlacaSolarEntity) {
-        repository.update(placa)
-    }
+---
 
-    fun deletarPlaca(placa: PlacaSolarEntity) {
-        repository.delete(placa)
-    }
+## 🚀 Junte-se a nós!
 
-    fun limparPlaca(id: Int) {
-        repository.limpar(id)
-    }
-}
-3. Repository
-O PlacaSolarRepository é responsável por:
+Transforme a maneira como você gerencia suas placas solares com o ClearVolt. Energia limpa, eficiente e com impacto positivo para o futuro! 🌟⚡
 
-Interagir diretamente com o PlacaSolarDao.
-Fornecer métodos para a ViewModel.
-kotlin
-Copiar código
-class PlacaSolarRepository(private val placaSolarDao: PlacaSolarDao) {
+### 📌 Contatos  
+[🌐 Acesse nosso site](https://webapp-clearvolt.azurewebsites.net/home)  
 
-    val allPlacas: LiveData<List<PlacaSolarEntity>> = placaSolarDao.listarPlacas()
-
-    suspend fun insert(placaSolar: PlacaSolarEntity) {
-        placaSolarDao.inserirPlaca(placaSolar)
-    }
-
-    suspend fun update(placaSolar: PlacaSolarEntity) {
-        placaSolarDao.atualizarPlaca(placaSolar)
-    }
-
-    suspend fun delete(placaSolar: PlacaSolarEntity) {
-        placaSolarDao.deletarPlaca(placaSolar)
-    }
-
-    suspend fun limpar(id: Int) {
-        placaSolarDao.limparPlaca(id)
-    }
-}
-Testes
-Banco de Dados
-Teste instrumentado utilizando uma instância em memória do Room.
-Verifica as operações CRUD do PlacaSolarDao.
-Repository
-Teste unitário com mocks para validar a integração entre DAO e ViewModel.
-ViewModel
-Garantia de que os dados são expostos corretamente via LiveData.
-Validação de chamadas assíncronas.
-Contribuindo
-Faça um fork do repositório.
-Crie um branch para sua funcionalidade:
-bash
-Copiar código
-git checkout -b feature/nova-funcionalidade
-Commit suas alterações:
-bash
-Copiar código
-git commit -m "Adiciona nova funcionalidade"
-Envie para o branch principal:
-bash
-Copiar código
-git push origin feature/nova-funcionalidade
-Abra um Pull Request.
-Licença
-Este projeto está licenciado sob a licença MIT. Consulte o arquivo LICENSE para mais informações.
+**ClearVolt: Limpando hoje, iluminando o amanhã!** 🌞✨
